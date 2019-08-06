@@ -1,0 +1,9 @@
+@extends('layouts.main')
+@section('content')
+    @include('layouts.slider')
+    @include('layouts.recent-offers')
+    @include('layouts.services')
+    @include('layouts.featured-offers')
+    @include('layouts.offers-category')
+    @include('layouts.reviews')
+@stop
