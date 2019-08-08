@@ -6,6 +6,7 @@
             <p>Перегляньте будинки та квартири для продажу та оренди у вашому районі</p>
         </div>
         <div class="row">
+{{--            @foreach($popular as $offer_popular)--}}
             <div class="col-lg-4 col-md-6">
                 <!-- feature -->
                 <div class="feature-item">
@@ -41,6 +42,7 @@
                     </div>
                 </div>
             </div>
+{{--            @endforeach--}}
             <div class="col-lg-4 col-md-6">
                 <!-- feature -->
                 <div class="feature-item">

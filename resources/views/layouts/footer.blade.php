@@ -1,4 +1,4 @@
-<footer class="footer-section set-bg" data-setbg="images/footer-bg.jpg">
+<footer class="footer-section set-bg" data-setbg="../images/footer-bg.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 footer-widget">

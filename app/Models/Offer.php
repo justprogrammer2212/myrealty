@@ -6,9 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
-    const USD = 'USD';
-    const UA = 'UA';
+    const USD = '$';
+    const UA = '₴';
+    const status_Sale = 'FOR SALE';
+    const status_Rent = 'FOR RENT';
     public static $offer_currency = [self::USD, self::UA];
+    public static $sale = [self::status_Sale, self::status_Rent];
     protected $table = 'offers';
     protected $guarded = [];
+
+    public function realtor_name() {
+        return Realtor::find($this->realtor_id);
+    }
+
 }

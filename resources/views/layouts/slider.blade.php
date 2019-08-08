@@ -31,7 +31,7 @@
 
 
 <!-- Filter form section -->
-<div class="filter-search">
+<div class="filter-search mt-4">
     <div class="container text-center">
         <form class="filter-form">
             <input type="text" placeholder="Шукаємо...">

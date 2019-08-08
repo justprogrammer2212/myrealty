@@ -18,7 +18,16 @@ class CreateOffersTable extends Migration
             $table->string('title',255)->nullable();
             $table->integer('price')->nullable();
             $table->string('currency')->nullable();
+            $table->string('status')->nullable();
             $table->text('description')->nullable();
+            $table->integer('views')->default(0);
+            $table->string('location')->nullable();
+            $table->string('street')->nullable();
+            $table->string('square')->nullable();
+            $table->string('garage')->nullable();
+            $table->string('bathroom')->nullable();
+            $table->string('bedrooms')->nullable();
+            $table->integer('age_build')->nullable();
             $table->unsignedBigInteger('category_id')->index();
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('realtor_id')->index();

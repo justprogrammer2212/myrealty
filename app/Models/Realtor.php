@@ -8,4 +8,5 @@ class Realtor extends Model
 {
     protected $table = 'realtors';
     protected $guarded = [];
+
 }
