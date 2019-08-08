@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Offer;
 use App\Models\Realtor;
 use Illuminate\Http\Request;
@@ -17,13 +18,10 @@ class OffersController extends Controller
         return view('offers.offer', compact('show'));
     }
 
-    public function recent_offers() {
+    public function homePage_offers() {
         $recent = Offer::select('status', 'title','location','price', 'currency', 'created_at')->OrderBy('created_at', 'DESC')->take(4)->get();
-        return view('index', compact('recent'));
-    }
-
-    public function popular_offers() {
         $popular = Offer::select('status', 'title','location', 'street', 'square', 'garage', 'bathroom', 'bedrooms', 'views' ,'price', 'currency')->OrderBy('views', 'DESC')->take(6)->get();
-        return view('index', compact('popular'));
+        $categories = Category::get();
+        return view('index', compact('recent','popular', 'categories'));
     }
 }

@@ -6,22 +6,12 @@
             <p>Що саме ви шукаєте? Ми допоможемо вам...</p>
         </div>
         <div class="row">
+            @foreach($categories as $cat)
             <div class="col-lg-3 col-md-6 f-cata">
                 <img src="images/feature-cate/1.jpg" alt="">
-                <h5>Оренда нерухомості</h5>
+                <h5>{{$cat->name}}</h5>
             </div>
-            <div class="col-lg-3 col-md-6 f-cata">
-                <img src="images/feature-cate/2.jpg" alt="">
-                <h5>Сімейний дім</h5>
-            </div>
-            <div class="col-lg-3 col-md-6 f-cata">
-                <img src="images/feature-cate/3.jpg" alt="">
-                <h5>Курортні вілли</h5>
-            </div>
-            <div class="col-lg-3 col-md-6 f-cata">
-                <img src="images/feature-cate/4.jpg" alt="">
-                <h5>Адміністративні будівлі</h5>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
