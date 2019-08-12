@@ -11,7 +11,7 @@
                 <!-- feature -->
                 <div class="feature-item">
                     <div class="feature-pic set-bg" data-setbg="images/feature/1.jpg">
-                        <div class="sale-notic">FOR SALE</div>
+                        <div class="sale-notic">{{$offer_popular->status}}</div>
                     </div>
                     <div class="feature-text">
                         <div class="text-center feature-title">
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="room-price">$1,200,000</a>
+                        <a  href="{{route('showOffer', $offer_popular)}}" class="room-price">View Offer</a>
                     </div>
                 </div>
             </div>

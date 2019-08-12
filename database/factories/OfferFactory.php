@@ -5,7 +5,7 @@
 use App\Models\Category;
 use App\Models\Offer;
 use App\Models\Realtor;
-use App\Models\User;
+use App\User;
 use Faker\Generator as Faker;
 
 $factory->define(Offer::class, function (Faker $faker) {

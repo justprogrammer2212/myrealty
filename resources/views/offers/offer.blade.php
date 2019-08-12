@@ -22,6 +22,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 single-list-page">
+                    <div class="col-xl-8 sl-title">
+                        <h4 class="display-4 text-center mb-2">{{$show->title}}</h4>
+                    </div>
                     <div class="single-list-slider owl-carousel" id="sl-slider">
                         <div class="sl-item set-bg" data-setbg="../images/single-list-slider/1.jpg">
                             <div class="sale-notic">FOR SALE</div>
@@ -39,21 +42,21 @@
                             <div class="sale-notic">FOR SALE</div>
                         </div>
                     </div>
-                        <div class="owl-carousel sl-thumb-slider" id="sl-slider-thumb">
-                                <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/1.jpg"></div>
-                                <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/2.jpg"></div>
-                                <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/3.jpg"></div>
-                                <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/4.jpg"></div>
-                                <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/5.jpg"></div>
-                        </div>
+                    <div class="owl-carousel sl-thumb-slider" id="sl-slider-thumb">
+                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/1.jpg"></div>
+                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/2.jpg"></div>
+                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/3.jpg"></div>
+                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/4.jpg"></div>
+                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/5.jpg"></div>
+                    </div>
                     <div class="single-list-content">
                         <div class="row">
                             <div class="col-xl-8 sl-title">
-                                <h2>305 North Palm Drive</h2>
-                                <p><i class="fa fa-map-marker"></i>Beverly Hills, CA 90210</p>
+                                <h2>{{$show->location}}</h2>
+                                <p><i class="fa fa-map-marker"></i>{{$show->street}}</p>
                             </div>
                             <div class="col-xl-4">
-                                <a href="#" class="price-btn">$4,500,000</a>
+                                <p class="price-btn">$4,500,000</p>
                             </div>
                         </div>
                         <h3 class="sl-sp-title">Property Details</h3>
@@ -75,7 +78,11 @@
                         </div>
                         <h3 class="sl-sp-title">Description</h3>
                         <div class="description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas fermentum ornareste. Donec index lorem. Vestibulum  aliquet odio, eget tempor libero. Cras congue cursus tincidunt. Nullam venenatis dui id orci egestas tincidunt id elit. Nullam ut vuputate justo. Integer lacnia pharetra pretium. Casan ante ipsum primis in faucibus orci luctus et ultrice.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas fermentum
+                                ornareste. Donec index lorem. Vestibulum aliquet odio, eget tempor libero. Cras congue
+                                cursus tincidunt. Nullam venenatis dui id orci egestas tincidunt id elit. Nullam ut
+                                vuputate justo. Integer lacnia pharetra pretium. Casan ante ipsum primis in faucibus
+                                orci luctus et ultrice.</p>
                         </div>
                         <h3 class="sl-sp-title">Property Details</h3>
                         <div class="row property-details-list">
@@ -99,9 +106,12 @@
                         <div id="accordion" class="plan-accordion">
                             <div class="panel">
                                 <div class="panel-header" id="headingOne">
-                                    <button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">First Floor: <span>660 sq ft</span>	<i class="fa fa-angle-down"></i></button>
+                                    <button class="panel-link active" data-toggle="collapse" data-target="#collapse1"
+                                            aria-expanded="false" aria-controls="collapse1">First Floor:
+                                        <span>660 sq ft</span> <i class="fa fa-angle-down"></i></button>
                                 </div>
-                                <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div id="collapse1" class="collapse show" aria-labelledby="headingOne"
+                                     data-parent="#accordion">
                                     <div class="panel-body">
                                         <img src="../images/plan-sketch.jpg" alt="">
                                     </div>
@@ -109,10 +119,13 @@
                             </div>
                             <div class="panel">
                                 <div class="panel-header" id="headingTwo">
-                                    <button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">Second Floor:<span>610 sq ft.</span>	<i class="fa fa-angle-down"></i>
+                                    <button class="panel-link" data-toggle="collapse" data-target="#collapse2"
+                                            aria-expanded="true" aria-controls="collapse2">Second
+                                        Floor:<span>610 sq ft.</span> <i class="fa fa-angle-down"></i>
                                     </button>
                                 </div>
-                                <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div id="collapse2" class="collapse" aria-labelledby="headingTwo"
+                                     data-parent="#accordion">
                                     <div class="panel-body">
                                         <img src="../images/plan-sketch.jpg" alt="">
                                     </div>
@@ -120,10 +133,13 @@
                             </div>
                             <div class="panel">
                                 <div class="panel-header" id="headingThree">
-                                    <button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Third Floor :<span>580 sq ft</span>	<i class="fa fa-angle-down"></i>
+                                    <button class="panel-link" data-toggle="collapse" data-target="#collapse3"
+                                            aria-expanded="false" aria-controls="collapse3">Third Floor
+                                        :<span>580 sq ft</span> <i class="fa fa-angle-down"></i>
                                     </button>
                                 </div>
-                                <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div id="collapse3" class="collapse" aria-labelledby="headingThree"
+                                     data-parent="#accordion">
                                     <div class="panel-body">
                                         <img src="../images/plan-sketch.jpg" alt="">
                                     </div>
@@ -134,10 +150,11 @@
                         <h3 class="sl-sp-title bd-no">Video</h3>
                         <div class="perview-video">
                             <img src="../images/video.jpg" alt="">
-                            <a href="https://www.youtube.com/watch?v=v13nSVp6m5I" class="video-link"><img src="../images/video-btn.png" alt=""></a>
+                            <a href="https://www.youtube.com/watch?v=v13nSVp6m5I" class="video-link"><img
+                                    src="../images/video-btn.png" alt=""></a>
                         </div>
-{{--                        <h3 class="sl-sp-title bd-no">Location</h3>--}}
-{{--                        <div class="pos-map" id="map-canvas"></div>--}}
+                        {{--                        <h3 class="sl-sp-title bd-no">Location</h3>--}}
+                        {{--                        <div class="pos-map" id="map-canvas"></div>--}}
                     </div>
                 </div>
                 <!-- sidebar -->
@@ -210,4 +227,4 @@
         </div>
     </section>
     <!-- Page end -->
-    @stop
+@stop

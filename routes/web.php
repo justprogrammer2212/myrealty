@@ -19,3 +19,8 @@ Route::get('/contact', 'PageController@contactPage')->name('contactPage');
 Route::get('/offers', 'OffersController@offers')->name('offersPage');
 Route::get('/', 'OffersController@homePage_offers')->name('indexPage');
 Route::get('/offer/{show}', 'OffersController@offer_show')->name('showOffer');
+
+
+Auth::routes();
+
+Route::get('/user/profile', 'UserProfileController@user')->name('user_profile');

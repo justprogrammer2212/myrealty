@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -20,6 +20,6 @@ class UsersTableSeeder extends Seeder
             'role' => User::ROLE_ADMIN,
             'remember_token' => Str::random(20),
         ]);
-        factory('App\Models\User', 10)->create();
+        factory('App\User', 10)->create();
     }
 }

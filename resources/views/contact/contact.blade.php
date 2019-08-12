@@ -26,20 +26,20 @@
                 <div class="col-lg-6">
                     <div class="contact-right">
                         <div class="section-title">
-                            <h3>Get in touch</h3>
-                            <p>Browse houses and flats for sale and to rent in your area</p>
+                            <h3>Зв'яжіться з Вами</h3>
+                            <p>Отримайте дані про будинки та квартири для продажу і оренди у вашому районі</p>
                         </div>
                         <form class="contact-form">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Your name">
+                                    <input type="text" placeholder="Ваше ім'я">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Your email">
+                                    <input type="text" placeholder="Ваш E-mail">
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea  placeholder="Your message"></textarea>
-                                    <button class="site-btn">SUMMIT NOW</button>
+                                    <textarea  placeholder="Ваше повідомлення"></textarea>
+                                    <button class="site-btn">Надіслати</button>
                                 </div>
                             </div>
                         </form>

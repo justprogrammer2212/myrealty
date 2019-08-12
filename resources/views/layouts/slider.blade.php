@@ -28,8 +28,6 @@
 {{--    </div>--}}
 {{--</section>--}}
 <!-- Hero section end -->
-
-
 <!-- Filter form section -->
 <div class="filter-search mt-4">
     <div class="container text-center">

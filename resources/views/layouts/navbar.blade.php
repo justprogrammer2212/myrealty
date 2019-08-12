@@ -1,10 +1,12 @@
 <div id="preloder">
     <div class="loader"></div>
 </div>
+
 <header class="header-section">
     <div class="header-top">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-6 header-top-left">
                     <div class="top-info">
                         <i class="fa fa-phone"></i>
@@ -23,8 +25,29 @@
                         <a href=""><i class="fa fa-telegram"></i></a>
                     </div>
                     <div class="user-panel">
-                        <a href=""><i class="fa fa-user-circle-o"></i> Реєстрація</a>
-                        <a href=""><i class="fa fa-sign-in"></i> Увійти</a>
+                        @guest
+                        <a href="{{ route('user_profile') }}"><i class="fa fa-sign-in"></i>
+                            Увійти
+                        </a>
+                            @if (Route::has('register'))
+                        <a href="{{ route('register') }}">
+                            <i class="fa fa-user-circle-o"></i> Реєстрація
+                        </a>
+                            @endif
+                        @else
+                                <a href="{{route('user_profile')}}">
+                                    <i class="fa fa-user-o"></i> Привіт, {{ Auth::user()->name }}
+                                </a>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-sign-out"></i>  Вихід
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                        @endguest
                     </div>
                 </div>
             </div>
