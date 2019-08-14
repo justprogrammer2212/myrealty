@@ -27,7 +27,7 @@
                         <!-- feature -->
                         <div class="feature-item">
                             <div class="feature-pic set-bg" data-setbg="images/feature/6.jpg">
-                                <div class="sale-notic">{{$list->status}}</div>
+                                <div class="{{$list->status == \App\Models\Offer::status_Sale ? 'sale-notic' : 'rent-notic'}}">{{$list->status}}</div>
                             </div>
                             <div class="feature-text">
                                 <div class="text-center feature-title">
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="room-info">
                                         <div class="rf-left">
-                                            <p><i class="fa fa-user"></i> {{$list->realtor_name()->name}} </p>
+                                            <p><i class="fa fa-user"></i>Realtor</p>
                                         </div>
                                         <div class="rf-right">
                                             <p><i class="fa fa-money"></i> Cost {{$list->price}}<span> {{$list->currency}}</span></p>

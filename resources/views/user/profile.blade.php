@@ -34,25 +34,25 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-12">
                         <h3 class="text-center h3 mt-4 mb-5">Мої оголошення</h3>
+                        <a class="btn btn-primary text-right mb-4" href="{{route('user_profile_add')}}">Додати оголошення</a>
                         <table class="table">
                             <thead>
                             <tr class="table-info">
-{{--                                @foreach($user_offer as $user)--}}
                                 <th scope="col">Оголошення</th>
-                                <th scope="col">Переглянути</th>
                                 <th scope="col">Редагувати</th>
                                 <th scope="col">Видалити</th>
-{{--                                    @endforeach--}}
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>Mark</td>
-                                <td>Show</td>
-                                <td>Edit</td>
-                                <td>Delete</td>
                             </tr>
-
+                            @foreach($userOffers as $userOffer)
+                            <tr>
+                                <td><a target="_blank" class="btn-link" href="{{route('showOffer', $userOffer)}}">{{$userOffer['title']}}</a></td>
+                                <td><a class="btn btn-warning" href="">Редагувати</a></td>
+                                <td><a class="btn btn-danger text-white">Видалити</a></td>
+                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

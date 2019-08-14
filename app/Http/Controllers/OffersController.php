@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Offer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class OffersController extends Controller
 {
@@ -15,19 +14,45 @@ class OffersController extends Controller
     }
 
     public function offer_show(Offer $show) {
+        $show->views++;
+        $show->save();
         return view('offers.offer', compact('show'));
     }
 
-
     public function homePage_offers() {
-        $recent = Offer::select('status', 'title','location','price', 'currency', 'created_at')->OrderBy('created_at', 'DESC')->take(4)->get();
-        $popular = Offer::select('status', 'title','location', 'street', 'square', 'garage', 'bathroom', 'bedrooms', 'views' ,'price', 'currency')->OrderBy('views', 'DESC')->take(6)->get();
+        $recent = Offer::OrderBy('created_at', 'DESC')->take(4)->get();
+        $popular = Offer::OrderBy('views', 'DESC')->take(6)->get();
         $categories = Category::get();
         return view('index', compact('recent','popular', 'categories'));
     }
 
-//    public function user_offers() {
-//        $user_offer = DB::table('offers')->join('users','user_id','=','id')->where('user_id', '==','id')->get();
-//        return view('user.profile',['user_offer' => $user_offer]);
-//    }
+    public function addOffer(Request $request) {
+        $status = false;
+        $file = $request->file('file');
+        if ($request->isMethod('post')) {
+//            Перевірка чи прийходить постом
+            if ($request->hasFile('file')) {
+//                Перевірка наявності файлу
+                $path = 'app/public/images_offers';
+//                Збереження файла
+                $file->move(storage_path($path), $file->getClientOriginalName());
+//                Статус для збереження зображення в БД
+                $status = true;
+            }
+        }
+
+        $offer = Offer::create([
+            'title' => $request->input('title'),
+            'price' => $request->input('price'),
+            'currency' => $request->input('currency'),
+            'description' => $request->input('description'),
+            'category_id' => $request->input('category'),
+            'user_id' => $request->input('user-id'),
+        ]);
+        if ($status) {
+            $offer->images = $file->getClientOriginalName();
+            $offer->save();
+        }
+        return redirect()->route('user_profile');
+    }
 }

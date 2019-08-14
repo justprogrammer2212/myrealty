@@ -4,7 +4,6 @@
 
 use App\Models\Category;
 use App\Models\Offer;
-use App\Models\Realtor;
 use App\User;
 use Faker\Generator as Faker;
 
@@ -24,6 +23,5 @@ $factory->define(Offer::class, function (Faker $faker) {
         'age_build' =>$faker->numberBetween(1,8),
         'category_id' => $faker->numberBetween(1,Category::count()),
         'user_id' => $faker->numberBetween(1,User::count()),
-        'realtor_id' => $faker->numberBetween(1,Realtor::count()),
     ];
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class UserProfileController extends Controller
@@ -23,6 +24,13 @@ class UserProfileController extends Controller
      */
     public function user()
     {
-        return view('user.profile');
+        $userOffers = auth()->user()->offers()->get();
+        $userOffers =array_reverse($userOffers->toArray());
+        return view('user.profile', compact('userOffers'));
+    }
+
+    public function userAdd() {
+        $categories = Category::get();
+        return view('user.profile-add', compact('categories'));
     }
 }

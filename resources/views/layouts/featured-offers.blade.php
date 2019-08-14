@@ -11,7 +11,7 @@
                 <!-- feature -->
                 <div class="feature-item">
                     <div class="feature-pic set-bg" data-setbg="images/feature/1.jpg">
-                        <div class="sale-notic">{{$offer_popular->status}}</div>
+                        <div class="{{$offer_popular->status == \App\Models\Offer::status_Sale ? 'sale-notic' : 'rent-notic'}}">{{$offer_popular->status}}</div>
                     </div>
                     <div class="feature-text">
                         <div class="text-center feature-title">

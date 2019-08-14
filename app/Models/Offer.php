@@ -15,8 +15,7 @@ class Offer extends Model
     protected $table = 'offers';
     protected $guarded = [];
 
-    public function realtor_name() {
-        return Realtor::find($this->realtor_id);
+    public function images() {
+        return explode(',',$this->images);
     }
-
 }

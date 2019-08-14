@@ -30,11 +30,9 @@ class CreateOffersTable extends Migration
             $table->integer('age_build')->nullable();
             $table->unsignedBigInteger('category_id')->index();
             $table->unsignedBigInteger('user_id')->index();
-            $table->unsignedBigInteger('realtor_id')->index();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('realtor_id')->references('id')->on('realtors')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
