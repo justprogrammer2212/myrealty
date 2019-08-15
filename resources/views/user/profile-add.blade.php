@@ -63,12 +63,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Status</label>
-                                <select name="currency" class="form-control">
+                                <select name="status" class="form-control">
                                     @foreach(\App\Models\Offer::$sale as $status)
                                         <option value="{{$status}}" name="status">{{$status}}</option>
                                     @endforeach
                                 </select>
-                                <small id="emailHelp" class="form-text text-muted">currency</small id="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">currency</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Description</label>
