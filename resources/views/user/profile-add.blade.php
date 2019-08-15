@@ -62,6 +62,15 @@
                                 <small id="emailHelp" class="form-text text-muted">currency</small>
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputPassword1">Status</label>
+                                <select name="currency" class="form-control">
+                                    @foreach(\App\Models\Offer::$sale as $status)
+                                        <option value="{{$status}}" name="status">{{$status}}</option>
+                                    @endforeach
+                                </select>
+                                <small id="emailHelp" class="form-text text-muted">currency</small id="emailHelp">
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputPassword1">Description</label>
                                 <textarea name="description"
                                           class="form-control {{$errors->has('description') ? 'is-invalid' : '' }}"></textarea>
@@ -69,6 +78,50 @@
                                     <span class="text-danger"><strong>{{ $errors->first('description') }}</strong></span>
                                 @endif
                                 <small id="emailHelp" class="form-text text-muted">description</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Location</label>
+                                <input type="text" class="form-control {{$errors->has('price') ? 'is-invalid' : '' }}" name="location" placeholder="Enter location">
+                                @if ($errors->has('price'))
+                                    <span class="text-danger"><strong>{{ $errors->first('title') }}</strong></span>
+                                @endif
+                                <small id="emailHelp" class="form-text text-muted">location</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Street</label>
+                                <input type="text" class="form-control" name="street" placeholder="Enter street">
+                                    <span class="text-danger"><strong></strong></span>
+                                <small class="form-text text-muted">Street</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Square</label>
+                                <input type="text" class="form-control" name="square" placeholder="Enter square">
+                                    <span class="text-danger"><strong></strong></span>
+                                <small class="form-text text-muted">Square</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Garage</label>
+                                <input type="text" class="form-control" name="garage" placeholder="Enter garage">
+                                <span class="text-danger"><strong></strong></span>
+                                <small class="form-text text-muted">Garages</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Bathroom</label>
+                                <input type="text" class="form-control" name="bathroom" placeholder="Enter bathroom">
+                                <span class="text-danger"><strong></strong></span>
+                                <small class="form-text text-muted">Bathroom</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Bedroom</label>
+                                <input type="text" class="form-control" name="bedroom" placeholder="Enter bedroom">
+                                <span class="text-danger"><strong></strong></span>
+                                <small class="form-text text-muted">Bedroom</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Age-build</label>
+                                <input type="number" class="form-control" name="age" placeholder="Enter Age build">
+                                <span class="text-danger"><strong></strong></span>
+                                <small class="form-text text-muted">Age</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Category</label>

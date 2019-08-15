@@ -28,6 +28,7 @@ class CreateOffersTable extends Migration
             $table->string('bathroom')->nullable();
             $table->string('bedrooms')->nullable();
             $table->integer('age_build')->nullable();
+            $table->text('images')->nullable();
             $table->unsignedBigInteger('category_id')->index();
             $table->unsignedBigInteger('user_id')->index();
             $table->timestamps();
