@@ -30,4 +30,8 @@ class Offer extends Model implements HasMedia
     public function realtor() {
         return User::find($this->realtor_id);
     }
+
+    public function getOfferImage() {
+        return $this->getFirstMediaUrl('OfferImages') != '' ? $this->getFirstMediaUrl('OfferImages') : asset('images/default/default-house.png');
+    }
 }

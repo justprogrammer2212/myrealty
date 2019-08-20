@@ -26,7 +26,7 @@
                     <div class="col-lg-4 col-md-6">
                         <!-- feature -->
                         <div class="feature-item">
-                            <div class="feature-pic set-bg" data-setbg="images/feature/6.jpg">
+                            <div class="feature-pic set-bg" data-setbg="{{$list->getOfferImage()}}">
                                 <div class="{{$list->status == \App\Models\Offer::status_Sale ? 'sale-notic' : 'rent-notic'}}">{{$list->status}}</div>
                             </div>
                             <div class="feature-text">

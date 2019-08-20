@@ -26,7 +26,7 @@
                         <h4 class="display-4 text-center mb-2">{{$show->title}}</h4>
                     </div>
                     <div class="single-list-slider owl-carousel" id="sl-slider">
-                        <div class="sl-item set-bg" data-setbg="../images/single-list-slider/1.jpg">
+                        <div class="sl-item set-bg" data-setbg="{{$show->getOfferImage()}}">
                             <div class="sale-notic">FOR SALE</div>
                         </div>
                         <div class="sl-item set-bg" data-setbg="../images/single-list-slider/2.jpg">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="owl-carousel sl-thumb-slider" id="sl-slider-thumb">
-                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/1.jpg"></div>
+                        <div class="sl-thumb set-bg" data-setbg="{{$show->getOfferImage()}}"></div>
                         <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/2.jpg"></div>
                         <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/3.jpg"></div>
                         <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/4.jpg"></div>
