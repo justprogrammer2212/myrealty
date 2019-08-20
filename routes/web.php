@@ -25,3 +25,11 @@ Auth::routes();
 
 Route::get('/user/profile', 'UserProfileController@user')->name('user_profile');
 Route::get('/user/profile/add', 'UserProfileController@userAdd')->name('user_profile_add');
+Route::get('/user/profile/edit/{user_id}', 'UserProfileController@userEdit')->name('user_profile_edit');
+Route::get('/user/profile/delete/{user_id}', 'UserProfileController@userDelete')->name('user_profile_delete');
+
+Route::get('/user/realtors/{offer_id}', 'RealtorController@listRealtors')->name('user_realtor_add');
+
+Route::get('/user/realtors/{offer_id}/{realtor_id}', 'RealtorController@selectRealtor')->name('user_realtor_select');
+
+

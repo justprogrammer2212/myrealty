@@ -8,12 +8,12 @@
         <div class="row">
             @foreach($recent as $offer)
             <div class="col-md-6">
-                <div class="propertie-item set-bg" data-setbg="images/propertie/1.jpg">
+                <div class="propertie-item set-bg" data-setbg="{{$offer->getOfferImage()}}">
                     <div class="{{$offer->status == \App\Models\Offer::status_Sale ? 'sale-notic' : 'rent-notic'}}">{{$offer->status}}</div>
                     <div class="propertie-info text-white">
                         <div class="info-warp">
                             <h5>{{$offer->title}}</h5>
-                            <p><i class="fa fa-map-marker"></i>{{$offer->location}}</p>
+                            <p><i class="fa fa-map-marker"></i> {{$offer->location}}</p>
                         </div>
                         <div class="price">{{$offer->price}} {{$offer->currency}}</div>
                     </div>

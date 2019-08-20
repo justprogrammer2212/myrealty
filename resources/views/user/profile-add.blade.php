@@ -63,12 +63,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Status</label>
-                                <select name="currency" class="form-control">
+                                <select name="status" class="form-control">
                                     @foreach(\App\Models\Offer::$sale as $status)
                                         <option value="{{$status}}" name="status">{{$status}}</option>
                                     @endforeach
                                 </select>
-                                <small id="emailHelp" class="form-text text-muted">currency</small id="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">currency</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Description</label>
@@ -90,13 +90,13 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Street</label>
                                 <input type="text" class="form-control" name="street" placeholder="Enter street">
-                                    <span class="text-danger"><strong></strong></span>
+                                <span class="text-danger"><strong></strong></span>
                                 <small class="form-text text-muted">Street</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Square</label>
                                 <input type="text" class="form-control" name="square" placeholder="Enter square">
-                                    <span class="text-danger"><strong></strong></span>
+                                <span class="text-danger"><strong></strong></span>
                                 <small class="form-text text-muted">Square</small>
                             </div>
                             <div class="form-group">
@@ -133,13 +133,6 @@
                                 <small id="emailHelp" class="form-text text-muted">Categories</small>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">User</label>
-                                <select name="user-id" class="form-control">
-                                        <option value="{{Auth::user()->id}}">{{Auth::user()->name}}</option>
-                                </select>
-                                <small id="emailHelp" class="form-text text-muted">User</small>
-                            </div>
-                            <div class="form-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="file">
                                     <label class="custom-file-label" for="customFile">Завантажити фото</label>
@@ -148,9 +141,9 @@
                             <button type="submit" class="btn btn-primary btn-block">Додати оголошення</button>
                         </form>
                     </div>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @stop

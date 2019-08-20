@@ -31,6 +31,7 @@ class CreateOffersTable extends Migration
             $table->text('images')->nullable();
             $table->unsignedBigInteger('category_id')->index();
             $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('realtor_id')->nullable()->index();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

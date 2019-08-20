@@ -37,32 +37,32 @@
                                 <div class="room-info-warp">
                                     <div class="room-info">
                                         <div class="rf-left">
-                                            <p><i class="fa fa-th-large"></i> {{$list->square}} Square foot</p>
-                                            <p><i class="fa fa-bed"></i> {{$list->bedrooms}} Bedrooms</p>
+                                            <p><i class="fa fa-th-large"></i> {{$list->square}} кв. метрів</p>
+                                            <p><i class="fa fa-bed"></i> {{$list->bedrooms}} спалень</p>
                                         </div>
                                         <div class="rf-right">
-                                            <p><i class="fa fa-car"></i> {{$list->garage}} Garages</p>
-                                            <p><i class="fa fa-bath"></i> {{$list->bathrooms}} Bathrooms</p>
+                                            <p><i class="fa fa-car"></i> {{$list->garage}} гаражів</p>
+                                            <p><i class="fa fa-bath"></i> {{$list->bathrooms}} ванні</p>
                                         </div>
                                     </div>
                                     <div class="room-info">
                                         <div class="rf-left">
-                                            <p><i class="fa fa-user"></i>Realtor</p>
+                                            <p><i class="fa fa-user"></i> Tony Holland</p>
                                         </div>
                                         <div class="rf-right">
-                                            <p><i class="fa fa-money"></i> Cost {{$list->price}}<span> {{$list->currency}}</span></p>
+                                            <p><i class="fa fa-money"></i> ціна {{$list->price}}<span> {{$list->currency}}</span></p>
                                         </div>
                                     </div>
                                     <div class="room-info">
                                         <div class="rf-left">
-                                            <p><i class="fa fa-clock-o"></i> 8 days ago</p>
+                                            <p><i class="fa fa-clock-o"></i> 1 день тому</p>
                                         </div>
                                         <div class="rf-right">
-                                            <p><i class="fa fa-eye"></i> Views {{$list->views}}</p>
+                                            <p><i class="fa fa-eye"></i> переглядів {{$list->views}}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <a  href="{{route('showOffer', $list)}}" class="room-price">View Offer</a>
+                                <a  href="{{route('showOffer', $list)}}" class="room-price">Переглянути</a>
                             </div>
                         </div>
                     </div>

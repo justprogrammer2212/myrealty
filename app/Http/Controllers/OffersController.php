@@ -27,32 +27,42 @@ class OffersController extends Controller
     }
 
     public function addOffer(Request $request) {
-        $status = false;
-        $file = $request->file('file');
-        if ($request->isMethod('post')) {
-//            Перевірка чи прийходить постом
-            if ($request->hasFile('file')) {
-//                Перевірка наявності файлу
-                $path = 'app/public/images_offers';
-//                Збереження файла
-                $file->move(storage_path($path), $file->getClientOriginalName());
-//                Статус для збереження зображення в БД
-                $status = true;
-            }
-        }
+//        $status = false;
+//        $file = $request->file('file');
+//        if ($request->isMethod('post')) {
+////            Перевірка чи прийходить постом
+//            if ($request->hasFile('file')) {
+////                Перевірка наявності файлу
+//                $path = 'app/public/images_offers';
+////                Збереження файла
+//                $file->move(storage_path($path), $file->getClientOriginalName());
+////                Статус для збереження зображення в БД
+//                $status = true;
+//            }
+//        }
 
         $offer = Offer::create([
             'title' => $request->input('title'),
             'price' => $request->input('price'),
             'currency' => $request->input('currency'),
+            'status' => $request->input('status'),
+            'location'=> $request->input('location'),
+            'street' => $request->input('street'),
+            'square' => $request->input('square'),
+            'garage' => $request->input('garage'),
+            'bathroom' => $request->input('bathroom'),
+            'bedrooms' => $request->input('bedroom'),
+            'age_build' => $request->input('age'),
             'description' => $request->input('description'),
             'category_id' => $request->input('category'),
             'user_id' => $request->input('user-id'),
         ]);
-        if ($status) {
-            $offer->images = $file->getClientOriginalName();
-            $offer->save();
-        }
+
+        $offer->addMedia($request->file)->toMediaCollection('OfferImages');
+//        if ($status) {
+//            $offer->images = $file->getClientOriginalName();
+//            $offer->save();
+//        }
         return redirect()->route('user_profile');
     }
 }
