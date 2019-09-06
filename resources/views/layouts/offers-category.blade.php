@@ -8,8 +8,10 @@
         <div class="row">
             @foreach($categories as $cat)
             <div class="col-lg-3 col-md-6 f-cata">
+                <a href="{{route('offersCategory', $cat)}}">
                 <img src="images/feature-cate/1.jpg" alt="">
                 <h5>{{$cat->name}}</h5>
+                </a>
             </div>
             @endforeach
         </div>

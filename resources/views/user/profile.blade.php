@@ -34,9 +34,16 @@
             <div class="col-md-9">
                 <div class="row justify-content-center">
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         {{--                Фото користувача--}}
-                        <img class="user-profile" src="../images/user_profile.png" alt="">
+                        <img class="user-profile" src="{{Auth()->user()->getAvatarUrl()}}">
+                        <form action="{{route('avatar_upload', Auth()->user())}}" enctype="multipart/form-data" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Example file input</label>
+                                <input name="avatar" type="file" class="form-control-file" id="exampleFormControlFile1" onchange="this.form.submit();">
+                            </div>
+                        </form>
                     </div>
                     {{--                Контент--}}
                     <div class="col-md-7">
@@ -60,7 +67,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <a class="btn btn-outline-dark" href="{{route('user_profile_edit', $userOffers)}}">Редагувати профіль  <i class="fa fa-edit icon-link"></i></a>
+                <a class="btn btn-outline-dark" href="{{route('user_profile_edit', Auth::id())}}">Редагувати профіль  <i class="fa fa-edit icon-link"></i></a>
             </div>
             <div class="row justify-content-between">
                 @foreach($userOffers as $userOffer)
@@ -74,15 +81,15 @@
                         </div>
                         <div class="card-body text-center">
                             <a href="{{route('showOffer', $userOffer['id'])}}" class=" btn-user-profile card-link" target="_blank"><i class="fa fa-eye"></i></a>
-                            <a href="" class=" btn-user-profile card-link"><i class="fa fa-edit"></i></a>
+                            <a href="{{route('offer_edit', $userOffer)}}" class=" btn-user-profile card-link"><i class="fa fa-edit"></i></a>
                             <a href="{{route('user_profile_delete', $userOffer)}}" class=" btn-user-profile card-link"><i class="fa fa-trash"></i></a>
                         </div>
                         <ul class="list-group list-group-flush text-center">
                             <li class="list-group-item">Дані про рієлтора:</li>
                         </ul>
                         <div class="card-body">
-                            @if(!$userOffer['realtor_id'])
-                            <p class="card-title">Рієлтора не знайдено</p>
+                        @if(!$userOffer['realtor_id'])
+                                <p class="card-title">Рієлтора не знайдено</p>
                                 <div class="text-center">
                                     <a href="{{route('user_realtor_add', $userOffer['id'])}}" class="card-link">Призначити</a>
                                 </div>
@@ -92,9 +99,12 @@
                                 <p class="card-text"><i class="fa fa-envelope-open"></i> {{$userOffer->realtor()->email}}</p>
                                 <hr>
                                 <p class="card-text"><i class="fa fa-phone"></i> {{$userOffer->realtor()->phone}}</p>
-                                <div class="text-center">
-                                    <a href="" class="card-link">Звільнити</a>
-                                </div>
+                                <form action="{{route('user_realtor_release', $userOffer)}}" method="post">
+                                    @csrf
+                                    <div class="text-center">
+                                        <button type="submit" class="card-link btn btn-link">Звільнити</button>
+                                    </div>
+                                </form>
                             @endif
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <!-- Page top section -->
-    <section class="page-top-section set-bg" data-setbg="images/page-top-bg.jpg">
+    <section class="page-top-section set-bg" data-setbg="{{asset('images/page-top-bg.jpg')}}">
         <div class="container text-white">
             <h2>Оголошення</h2>
         </div>
@@ -67,7 +67,6 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
             <nav class="pagination justify-content-center">
                 {!!$offers->links();!!}

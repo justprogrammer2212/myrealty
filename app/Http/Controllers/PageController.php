@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\EmailVerefication;
 use Illuminate\Http\Request;
 
 class PageController extends Controller

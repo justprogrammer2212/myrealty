@@ -17,21 +17,28 @@ class Offer extends Model implements HasMedia
     public static $offer_currency = [self::USD, self::UA];
     public static $sale = [self::status_Sale, self::status_Rent];
     protected $table = 'offers';
-    protected $guarded = [];
-
-//    public function images() {
-//        return explode(',',$this->images);
-//    }
+    protected $guarded = ['file'];
 
     public function getOfferImage() {
         return $this->getFirstMediaUrl('OfferImages') != '' ? $this->getFirstMediaUrl('OfferImages') : asset('images/default/default-house.jpg');
+    }
+
+    public function getOfferAdditionalImages() {
+        return $this->getMedia('slider_images') ? $this->getMedia('slider_images') : asset('images/default/default-house.jpg');
     }
 
     public function realtor() {
         return User::find($this->realtor_id);
     }
 
-    public function getOfferImages() {
-        return $this->getFirstMediaUrl('OfferImages') != '' ? $this->getFirstMediaUrl('OfferImages') : asset('images/default/default-house.png');
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id');
     }
-}
+    public function user(){
+        return $this->belongsTo(User::class, 'realtor_id');
+    }
+
+    public function hasRealtor() {
+        return $this->realtor_id != null;
+    }
+ }

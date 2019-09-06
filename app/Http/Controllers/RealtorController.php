@@ -20,10 +20,9 @@ class RealtorController extends Controller
         return redirect()->route('user_profile');
     }
 
-    public function releaseRealtor($offer_id, $realtor_id) {
+    public function releaseRealtor($offer_id) {
         $offer_find = Offer::find($offer_id);
-        $offer_find->realtor_id = $realtor_id;
-        $realtor_id = Null;
+        $offer_find->realtor_id = null;
         $offer_find->save();
         return redirect()->route('user_profile');
     }

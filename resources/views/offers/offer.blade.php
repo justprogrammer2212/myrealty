@@ -16,7 +16,7 @@
         </div>
     </div>
 
-
+{{--    @dd($show->getOfferAdditionalImages()[0]->getFullUrl())--}}
     <!-- Page -->
     <section class="page-section">
         <div class="container">
@@ -27,27 +27,29 @@
                     </div>
                     <div class="single-list-slider owl-carousel" id="sl-slider">
                         <div class="sl-item set-bg" data-setbg="{{$show->getOfferImage()}}">
-                            <div class="sale-notic">FOR SALE</div>
+                            <div class="sale-notic">{{$show->status}}</div>
                         </div>
-                        <div class="sl-item set-bg" data-setbg="../images/single-list-slider/2.jpg">
-                            <div class="rent-notic">FOR Rent</div>
+                        @foreach($show->getOfferAdditionalImages() as $slider)
+                        <div class="sl-item set-bg" data-setbg="{{$slider->getFullUrl()}}">
+                            <div class="sale-notic">{{$show->status}}</div>
                         </div>
-                        <div class="sl-item set-bg" data-setbg="../images/single-list-slider/3.jpg">
-                            <div class="sale-notic">FOR SALE</div>
-                        </div>
-                        <div class="sl-item set-bg" data-setbg="../images/single-list-slider/4.jpg">
-                            <div class="rent-notic">FOR Rent</div>
-                        </div>
-                        <div class="sl-item set-bg" data-setbg="../images/single-list-slider/5.jpg">
-                            <div class="sale-notic">FOR SALE</div>
-                        </div>
+                        @endforeach
+{{--                        <div class="sl-item set-bg" data-setbg="../images/single-list-slider/3.jpg">--}}
+{{--                            <div class="sale-notic">FOR SALE</div>--}}
+{{--                        </div>--}}
+{{--                        <div class="sl-item set-bg" data-setbg="../images/single-list-slider/4.jpg">--}}
+{{--                            <div class="rent-notic">FOR Rent</div>--}}
+{{--                        </div>--}}
+{{--                        <div class="sl-item set-bg" data-setbg="../images/single-list-slider/5.jpg">--}}
+{{--                            <div class="sale-notic">FOR SALE</div>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="owl-carousel sl-thumb-slider" id="sl-slider-thumb">
                         <div class="sl-thumb set-bg" data-setbg="{{$show->getOfferImage()}}"></div>
-                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/2.jpg"></div>
-                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/3.jpg"></div>
-                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/4.jpg"></div>
-                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/5.jpg"></div>
+{{--                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/2.jpg"></div>--}}
+{{--                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/3.jpg"></div>--}}
+{{--                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/4.jpg"></div>--}}
+{{--                        <div class="sl-thumb set-bg" data-setbg="../images/single-list-slider/5.jpg"></div>--}}
                     </div>
                     <div class="single-list-content">
                         <div class="row">
@@ -56,18 +58,18 @@
                                 <p><i class="fa fa-map-marker"></i>{{$show->street}}</p>
                             </div>
                             <div class="col-xl-4">
-                                <p class="price-btn">$4,500,000</p>
+                                <p class="price-btn">{{$show->currency}} {{$show->price}}</p>
                             </div>
                         </div>
                         <h3 class="sl-sp-title">Property Details</h3>
                         <div class="row property-details-list">
                             <div class="col-md-4 col-sm-6">
-                                <p><i class="fa fa-th-large"></i> 1500 Square foot</p>
-                                <p><i class="fa fa-bed"></i> 16 Bedrooms</p>
+                                <p><i class="fa fa-th-large"></i> {{$show->square}} Square foot</p>
+                                <p><i class="fa fa-bed"></i> {{$show->bedrooms}} Bedrooms</p>
                                 <p><i class="fa fa-user"></i> Gina Wesley</p>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <p><i class="fa fa-car"></i> 2 Garages</p>
+                                <p><i class="fa fa-car"></i> {{$show->garage}} garages</p>
                                 <p><i class="fa fa-building-o"></i> Family Villa</p>
                                 <p><i class="fa fa-clock-o"></i> 1 days ago</p>
                             </div>
@@ -153,23 +155,23 @@
                             <a href="https://www.youtube.com/watch?v=v13nSVp6m5I" class="video-link"><img
                                     src="../images/video-btn.png" alt=""></a>
                         </div>
-                        {{--                        <h3 class="sl-sp-title bd-no">Location</h3>--}}
-                        {{--                        <div class="pos-map" id="map-canvas"></div>--}}
                     </div>
                 </div>
                 <!-- sidebar -->
                 <div class="col-lg-4 col-md-7 sidebar">
+                    @if($show->hasRealtor())
                     <div class="author-card">
-                        <div class="author-img set-bg" data-setbg="../images/author.jpg"></div>
+                        <div class="author-img set-bg" data-setbg="{{$realtor->getAvatarUrl()}}"></div>
                         <div class="author-info">
-                            <h5>Gina Wesley</h5>
+                            <h5>{{$realtor->name}}</h5>
                             <p>Real Estate Agent</p>
                         </div>
                         <div class="author-contact">
-                            <p><i class="fa fa-phone"></i>(567) 666 121 2233</p>
-                            <p><i class="fa fa-envelope"></i>ginawesley26@gmail.com</p>
+                            <p><i class="fa fa-phone"></i>{{$realtor->phone}}</p>
+                            <p><i class="fa fa-envelope"></i>{{$realtor->email}}</p>
                         </div>
                     </div>
+                    @endif
                     <div class="contact-form-card">
                         <h5>Do you have any question?</h5>
                         <form>
@@ -181,8 +183,9 @@
                     </div>
                     <div class="related-properties">
                         <h2>Related Property</h2>
+                        @foreach($related_offers as $related_offer)
                         <div class="rp-item">
-                            <div class="rp-pic set-bg" data-setbg="../images/feature/1.jpg">
+                            <div class="rp-pic set-bg" data-setbg="{{$related_offer->getOfferImage()}}">
                                 <div class="sale-notic">FOR SALE</div>
                             </div>
                             <div class="rp-info">
@@ -191,36 +194,7 @@
                             </div>
                             <a href="#" class="rp-price">$1,200,000</a>
                         </div>
-                        <div class="rp-item">
-                            <div class="rp-pic set-bg" data-setbg="../images/feature/2.jpg">
-                                <div class="rent-notic">FOR Rent</div>
-                            </div>
-                            <div class="rp-info">
-                                <h5>17 Sturges Road, Wokingham</h5>
-                                <p><i class="fa fa-map-marker"></i> Newtown, CT 06470</p>
-                            </div>
-                            <a href="#" class="rp-price">$2,500/month</a>
-                        </div>
-                        <div class="rp-item">
-                            <div class="rp-pic set-bg" data-setbg="../images/feature/4.jpg">
-                                <div class="sale-notic">FOR SALE</div>
-                            </div>
-                            <div class="rp-info">
-                                <h5>28 Quaker Ridge Road, Manhasset</h5>
-                                <p><i class="fa fa-map-marker"></i>28 Quaker Ridge Road, Manhasset</p>
-                            </div>
-                            <a href="#" class="rp-price">$5,600,000</a>
-                        </div>
-                        <div class="rp-item">
-                            <div class="rp-pic set-bg" data-setbg="../images/feature/5.jpg">
-                                <div class="rent-notic">FOR Rent</div>
-                            </div>
-                            <div class="rp-info">
-                                <h5>Sofi Berryessa 750 N King Road</h5>
-                                <p><i class="fa fa-map-marker"></i>Sofi Berryessa 750 N King Road</p>
-                            </div>
-                            <a href="#" class="rp-price">$1,600/month</a>
-                        </div>
+                            @endforeach
                     </div>
                 </div>
             </div>

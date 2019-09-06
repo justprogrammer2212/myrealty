@@ -31,8 +31,8 @@
 <!-- Filter form section -->
 <div class="filter-search mt-4">
     <div class="container text-center">
-        <form class="filter-form">
-            <input type="text" placeholder="Шукаємо...">
+        <form class="filter-form" action="{{route('search')}}">
+            <input type="text" name="title" value="{{old('title') ?? $request->title ?? ''}}" placeholder="Шукаємо...">
             <button class="site-btn fs-submit">Пошук</button>
         </form>
     </div>

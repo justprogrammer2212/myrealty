@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    @dump($errors)
     <!-- Page top section -->
     <section class="page-top-section set-bg" data-setbg="{{asset('images/page-top-bg.jpg')}}">
         <div class="container text-white">
@@ -33,7 +34,7 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-4 offset-sm-4">
                         <h3 class="text-center h3 mt-4 mb-5">Додати оголошення</h3>
-                        <form action="{{route('addOffer', ['user-id' => Auth::user()->id])}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('addOffer', ['user_id' => Auth::user()->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">title</label>
@@ -113,19 +114,19 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Bedroom</label>
-                                <input type="text" class="form-control" name="bedroom" placeholder="Enter bedroom">
+                                <input type="text" class="form-control" name="bedrooms" placeholder="Enter bedroom">
                                 <span class="text-danger"><strong></strong></span>
                                 <small class="form-text text-muted">Bedroom</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Age-build</label>
-                                <input type="number" class="form-control" name="age" placeholder="Enter Age build">
+                                <input type="number" class="form-control" name="age_build" placeholder="Enter Age build">
                                 <span class="text-danger"><strong></strong></span>
                                 <small class="form-text text-muted">Age</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Category</label>
-                                <select name="category" class="form-control">
+                                <select name="category_id" class="form-control">
                                     @foreach($categories as $cat)
                                         <option value="{{$cat->id}}">{{$cat->name}}</option>
                                     @endforeach
@@ -136,6 +137,10 @@
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="file">
                                     <label class="custom-file-label" for="customFile">Завантажити фото</label>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" multiple name="files[]">
+                                    <label class="custom-file-label" for="customFile">Додаткові фото</label>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Додати оголошення</button>
